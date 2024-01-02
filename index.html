@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>arXiv Vanity</title>
+  </head>
+
+  <body>
+    <h1>arXiv Vanity used to render academic papers from <a href="https://arxiv.org">arXiv</a> as responsive web pages so you didn't have to squint at a PDF.</h1>
+   
+    <big><p><a href="https://blog.arxiv.org/2023/12/21/accessibility-update-arxiv-now-offers-papers-in-html-format/">arXiv now has HTML papers</a>, so arXiv Vanity doesn't need to exist any longer.</p></big>
+    
+    <p>arXiv Vanity was built by <a href="https://twitter.com/bfirsh">Ben</a> and <a href="https://twitter.com/allnoteson">Andreas</a>. When we were on vacation in Greece, Andreas was squinting at an arXiv paper on his phone. "Why the hell are papers PDFs," he complained, and we discovered our mutual hatred for PDF academic papers. The Web was invented at CERN, a physics institution, for sharing academic writing. We have <code>&lt;figure&gt;</code> tags, <code>&lt;author&gt;</code> tags, <code>&lt;cite&gt;</code> tags. Hyperlinks are for citations. But, 30 years later, we have Facebook and PDF academic papers. That's not what it was designed for!</p>
+    
+    <p>Instead of having a vacation, we built the first version of arXiv Vanity. arXiv Vanity is kinda neat in that they don't just have the PDF – they keep the original LaTeX source. PDF is just presentational, whereas LaTeX has a lot of semantic information in it and made it tractible to convert to HTML.</p>
+
+    <p>We originally used <a href="https://pandoc.org">Pandoc</a>, but TeX is turing complete and Pandoc tried to naively parse it, so that didn't really work.</p>
+    
+    <p>Later we came across <a href="https://math.nist.gov/~BMiller/LaTeXML/">LaTeXML</a>, a brilliant LaTeX runtime written in Perl. Weirdly it is a project of the <em>US Government</em>, created by Bruce Miller at NIST. The <a href="https://dlmf.nist.gov">NIST Digital Library of Mathematical Functions</a> is a library of government approved mathemetical formulae, represented in the gold standard of math rendering: LaTeX. LaTeX isn't a particularly good archival medium though. It doesn't really have a specification and is only defined by a runtime that Don Knuth wrote in the 70s in his own custom programming language (called "<a href="https://en.wikipedia.org/wiki/Web_(programming_system)">WEB</a>", funnily). So, NIST created a runtime from scratch in Perl to convert the LaTeX into semantic XML. It ballooned from its original intention of converting LaTeX formulae to XML, adding support for more LaTeX features, more output formats like HTML, eventually becoming one of the best LaTeX runtimes.</p>
+    
+    <p>We slapped some JavaScript and CSS on top of the LaTeXML output, with some designs from our friend <a href="https://mhurrell.co.uk/work/arxiv-vanity/">Mark Hurrell</a>, and wrapped it all up in a tool called <a href="https://github.com/arxiv-vanity/engrafo">Engrafo</a>. Then, we made a little single use app that rendered arXiv papers on-demand. <a href="https://news.ycombinator.com/item?id=15534580">People seemed to like it.</a></p>
+
+    <p>We got involved in <a href="https://info.arxiv.org/labs/showcase.html">early projects to add HTML to arXiv</a> but <a href="http://replicate.com">we got busy</a> and didn't really do much to help.</p>
+
+    <p>Thankfully <a href="https://twitter.com/dginev">Deyan Given</a> and team from LaTeXML and <a href="https://ar5iv.labs.arxiv.org">ar5iv</a> made it happen and finally <a href="https://blog.arxiv.org/2023/12/21/accessibility-update-arxiv-now-offers-papers-in-html-format/">HTML is on the abstract page</a>. They've been working on this for <em>years</em>. We know how hard it is to get LaTeX rendering well, and to get it this good is no small feat.</p>
+
+    <p>Our job here is done. Down with PDFs! Web is best!</p>
+
+  </body>
+</html>
