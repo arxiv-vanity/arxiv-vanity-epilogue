@@ -1,0 +1,2 @@
+/papers/:id/ https://ar5iv.labs.arxiv.org/html/:id 302
+/papers/:id https://ar5iv.labs.arxiv.org/html/:id 302
